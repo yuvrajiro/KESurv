@@ -35,7 +35,7 @@ copybutton_prompt_text = r">>> |\$ "
 copybutton_prompt_is_regexp = True
 
 html_theme = "furo"
-html_title = f"KESurv {release}"
+html_title = "KESurv"
 html_baseurl = "https://kesurv.statml.in/"
 html_favicon = "_static/favicon.svg"
 html_static_path = ["_static"]
@@ -47,14 +47,14 @@ html_theme_options = {
     "source_branch": "main",
     "source_directory": "docs/",
     "light_css_variables": {
-        "color-brand-primary": "#0f6b66",
-        "color-brand-content": "#0f6b66",
+        "color-brand-primary": "#111111",
+        "color-brand-content": "#111111",
         "font-stack": "Inter, system-ui, -apple-system, 'Segoe UI', sans-serif",
         "font-stack--monospace": "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
     },
     "dark_css_variables": {
-        "color-brand-primary": "#6fd6c4",
-        "color-brand-content": "#6fd6c4",
+        "color-brand-primary": "#f2f2f2",
+        "color-brand-content": "#f2f2f2",
     },
     "footer_icons": [
         {

@@ -2,7 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/kesurv.svg)](https://pypi.org/project/kesurv/)
 [![Tests](https://github.com/yuvrajiro/kesurv/actions/workflows/ci.yml/badge.svg)](https://github.com/yuvrajiro/kesurv/actions/workflows/ci.yml)
-[![Docs](https://img.shields.io/badge/docs-kesurv.statml.in-0f6b66)](https://kesurv.statml.in)
+[![Docs](https://img.shields.io/badge/docs-kesurv.statml.in-111111)](https://kesurv.statml.in)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yuvrajiro/kesurv/blob/main/LICENSE)
 
 KESurv estimates patient-specific survival curves from right-censored data. A survival forest supplies adaptive neighbor weights; user-selected survival models vote on which neighbors have similar predicted survival trajectories; a weighted Kaplan–Meier estimator produces the final curve.

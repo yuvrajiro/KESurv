@@ -1,15 +1,81 @@
-/* Minimal adjustments on top of Furo. */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+/* KESurv: a monochrome, typographic layer on top of Furo. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap");
 
-body { font-feature-settings: "cv11", "ss01"; }
-article h1 { font-weight: 700; letter-spacing: -0.02em; }
-article h2 { font-weight: 600; letter-spacing: -0.01em; margin-top: 2.2rem; }
+:root { --ks-radius: 10px; --ks-serif: "Instrument Serif", Georgia, serif; }
 
-.ks-lead { font-size: 1.15rem; line-height: 1.6; color: var(--color-foreground-secondary); max-width: 40rem; }
-.ks-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 1.25rem 0 2rem; font-weight: 500; }
-.ks-links a { text-decoration: none; }
-.ks-links a:hover { text-decoration: underline; }
+body { font-feature-settings: "cv11", "ss01"; -webkit-font-smoothing: antialiased; }
+article h1 { font-family: var(--ks-serif); font-weight: 400; font-size: 2.7rem; letter-spacing: -0.01em; }
+article h2 { font-weight: 600; letter-spacing: -0.015em; margin-top: 2.6rem; padding-bottom: .4rem; border-bottom: 1px solid var(--color-background-border); }
+article h3 { font-weight: 600; }
+.sidebar-brand-text { font-family: var(--ks-serif); font-size: 1.7rem; font-weight: 400; }
+.sidebar-tree .caption { letter-spacing: .08em; font-size: .7rem; }
 
-.ks-flow { font-family: var(--font-stack--monospace); font-size: 0.85rem; color: var(--color-foreground-secondary); padding: 0.9rem 1rem; border-left: 2px solid var(--color-brand-primary); background: var(--color-background-secondary); margin: 1rem 0 1.5rem; }
+/* Code, tables, admonitions: thin hairlines, no tint. */
+.highlight { border: 1px solid var(--color-background-border); border-radius: var(--ks-radius); }
+article table.docutils { border: 1px solid var(--color-background-border); box-shadow: none; }
+article table.docutils th { background: var(--color-background-secondary); font-weight: 600; }
+.admonition { border-radius: var(--ks-radius); box-shadow: none; border: 1px solid var(--color-background-border); }
 
-article img { border-radius: 6px; }
+/* Landing page: the markdown H1 only supplies the page title. */
+#kesurv > h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+.ks-hero {
+  position: relative; margin: .5rem 0 1.4rem; padding: 3rem 2.25rem 2.5rem;
+  border: 1px solid var(--color-background-border); border-radius: 14px;
+  background-color: var(--color-background-primary);
+  background-image:
+    linear-gradient(var(--color-background-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-background-border) 1px, transparent 1px);
+  background-size: 28px 28px; background-position: -1px -1px;
+  overflow: clip; clear: both;
+}
+.ks-hero::before { /* fade the grid behind the text */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 22% 45%, var(--color-background-primary) 38%, transparent 88%);
+}
+.ks-hero > * { position: relative; }
+.ks-eyebrow { font-size: .78rem; color: var(--color-foreground-secondary); letter-spacing: .02em; }
+.ks-eyebrow span { display: inline-block; margin-right: .5rem; padding: .1rem .5rem; border: 1px solid var(--color-foreground-border); border-radius: 999px; font-family: var(--font-stack--monospace); font-size: .72rem; color: var(--color-foreground-primary); background: var(--color-background-primary); }
+.ks-display { font-family: var(--ks-serif); font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.02; letter-spacing: -.02em; margin: 1rem 0 1.1rem; color: var(--color-foreground-primary); }
+.ks-display em { color: var(--color-foreground-secondary); }
+.ks-lead { font-size: 1.1rem; line-height: 1.65; color: var(--color-foreground-secondary); max-width: 36rem; margin: 0; }
+.ks-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; margin-top: 1.8rem; }
+.ks-btn { padding: .6rem 1.1rem; border-radius: 8px; font-weight: 600; font-size: .92rem; text-decoration: none !important; transition: transform .15s ease; }
+.ks-btn:hover { transform: translateY(-1px); }
+.ks-btn-solid { background: var(--color-foreground-primary); color: var(--color-background-primary) !important; }
+.ks-btn-ghost { border: 1px solid var(--color-foreground-border); color: var(--color-foreground-primary) !important; background: var(--color-background-primary); }
+code.ks-install { padding: .55rem .9rem !important; border: 1px dashed var(--color-foreground-border) !important; border-radius: 8px; background: var(--color-background-primary) !important; font-size: .85rem !important; color: var(--color-foreground-secondary) !important; }
+
+.ks-features { clear: both; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .9rem; margin-bottom: 1rem; }
+.ks-card { display: block; padding: 1.2rem 1.2rem 1.1rem; border: 1px solid var(--color-background-border); border-radius: var(--ks-radius); text-decoration: none !important; color: inherit !important; transition: border-color .15s ease, transform .15s ease; }
+.ks-card:hover { border-color: var(--color-foreground-primary); transform: translateY(-2px); }
+.ks-card svg { width: 22px; height: 22px; fill: none; stroke: var(--color-foreground-primary); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ks-card h3 { font-size: 1rem; padding: 0; margin: .7rem 0 .35rem; }
+.ks-card p { margin: 0; font-size: .88rem; line-height: 1.55; color: var(--color-foreground-secondary); }
+
+.ks-steps { list-style: none; counter-reset: step; padding: 0 !important; margin: 1.2rem 0; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--color-background-border); border-radius: var(--ks-radius); }
+.ks-steps li { counter-increment: step; position: relative; padding: 1.1rem 1.1rem 1.2rem; margin: 0 !important; border-right: 1px solid var(--color-background-border); }
+.ks-steps li:last-child { border-right: 0; }
+.ks-steps li::before { content: "0" counter(step); display: block; font-family: var(--font-stack--monospace); font-size: .72rem; color: var(--color-foreground-muted); margin-bottom: .5rem; }
+.ks-steps li:not(:last-child)::after { content: "→"; position: absolute; right: -.55rem; top: 1rem; z-index: 1; font-size: .8rem; padding: 0 .15rem; background: var(--color-background-primary); color: var(--color-foreground-muted); }
+.ks-steps b { display: block; font-family: var(--ks-serif); font-weight: 400; font-size: 1.5rem; margin-bottom: .25rem; }
+.ks-steps span { font-size: .86rem; line-height: 1.5; color: var(--color-foreground-secondary); }
+@media (max-width: 900px) {
+  .ks-steps { grid-template-columns: repeat(2, 1fr); }
+  .ks-steps li:nth-child(2) { border-right: 0; }
+  .ks-steps li:nth-child(-n+2) { border-bottom: 1px solid var(--color-background-border); }
+  .ks-steps li:nth-child(2)::after { display: none; }
+}
+@media (max-width: 640px) {
+  .ks-steps { grid-template-columns: 1fr; }
+  .ks-hero { padding: 2rem 1.25rem; }
+  .ks-steps li { border-right: 0; border-bottom: 1px solid var(--color-background-border); }
+  .ks-steps li:last-child { border-bottom: 0; }
+  .ks-steps li::after { display: none; }
+}
+
+.ks-figure { margin: 2rem 0; padding: 1rem; border: 1px solid var(--color-background-border); border-radius: var(--ks-radius); }
+.ks-figure img { display: block; width: 100%; border-radius: 6px; background: #fff; }
+.ks-figure figcaption { margin-top: .75rem; font-size: .85rem; color: var(--color-foreground-secondary); text-align: center; }
+
+.ks-cite { padding: 1rem 1.2rem; border-left: 2px solid var(--color-foreground-primary); background: var(--color-background-secondary); font-family: var(--ks-serif); font-size: 1.2rem; line-height: 1.5; border-radius: 0 var(--ks-radius) var(--ks-radius) 0; }

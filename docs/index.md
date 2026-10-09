@@ -1,23 +1,44 @@
 # KESurv
 
-<p class="ks-lead">Patient-specific survival curves from right-censored data. A survival forest proposes neighbors, your own survival models vote on which neighbors look alike, and a weighted Kaplan–Meier estimator turns the selected neighbors into a curve.</p>
-
-<div class="ks-links">
-  <a href="getting-started.html">Get started →</a>
-  <a href="concepts.html">How it works</a>
-  <a href="api.html">API reference</a>
-  <a href="https://github.com/yuvrajiro/kesurv">GitHub</a>
+<div class="ks-hero">
+  <div class="ks-eyebrow"><span>v0.1.0</span> Kernel ensemble survival estimation · ACML 2026</div>
+  <p class="ks-display">Survival curves,<br><em>grounded in local evidence.</em></p>
+  <p class="ks-lead">A survival forest proposes neighbors, your own models vote on which of them look alike, and a weighted Kaplan–Meier estimator turns the chosen neighbors into a patient-specific curve.</p>
+  <div class="ks-actions">
+    <a class="ks-btn ks-btn-solid" href="getting-started.html">Get started</a>
+    <a class="ks-btn ks-btn-ghost" href="concepts.html">How it works</a>
+    <code class="ks-install">$ pip install kesurv</code>
+  </div>
 </div>
 
-## Install
+<div class="ks-features">
+  <a class="ks-card" href="custom-estimators.html">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg>
+    <h3>Bring any learner</h3>
+    <p>Anything with <code>fit</code> and <code>predict_survival_function</code> can vote, whether from scikit-survival or your own class.</p>
+  </a>
+  <a class="ks-card" href="predictions.html">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/><path d="M8 11h6M11 8v6"/></svg>
+    <h3>Inspect every curve</h3>
+    <p>Forest weights, agreement counts, selected neighbors and fallbacks are all returned, not hidden.</p>
+  </a>
+  <a class="ks-card" href="performance.html">
+    <svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+    <h3>Tune the cost</h3>
+    <p>Choose the similarity horizon, grid resolution, batch size, and NumPy or Numba kernels.</p>
+  </a>
+</div>
 
-```console
-pip install kesurv
-```
+## How a prediction is made
 
-Add the optional Numba kernels with `pip install "kesurv[speed]"`. Python 3.10 or newer is required.
+<ol class="ks-steps">
+  <li><b>Forest</b><span>Leaves of a random survival forest give bootstrap-weighted candidate neighbors.</span></li>
+  <li><b>Curves</b><span>Each base model predicts survival curves for the query and every candidate.</span></li>
+  <li><b>Vote</b><span>A model votes for a candidate when the area between their curves is at most ε.</span></li>
+  <li><b>Estimate</b><span>Candidates with enough votes feed a weighted Kaplan–Meier curve.</span></li>
+</ol>
 
-## Example
+## Quick example
 
 ```python
 from kesurv import KESurv
@@ -40,26 +61,20 @@ model.predict_survival(X_test, times=[1.0, 2.0, 3.0])  # (n_test, 3) probabiliti
 model.predict_neighbor_info(X_test[:1])                 # which neighbors, and why
 ```
 
-`X` is a finite numeric matrix and `y` a scikit-survival structured array (`Surv.from_arrays`). [Getting started](getting-started.md) has a complete, runnable version.
+`X` is a finite numeric matrix and `y` a scikit-survival structured array (`Surv.from_arrays`). [Getting started](getting-started.md) has a complete runnable version. Install `kesurv[speed]` for the optional Numba kernels. Python 3.10 or newer is required.
 
-## The method in one line
-
-<div class="ks-flow">survival forest → candidate neighbors → base-model agreement → weighted Kaplan–Meier</div>
-
-- **Bring any learner.** Any object with `fit` and `predict_survival_function` can vote, including scikit-survival models and [your own](custom-estimators.md).
-- **Inspect every prediction.** Forest weights, agreement counts, selected neighbors and fallbacks are all exposed ([predictions](predictions.md)).
-- **Control the cost.** The similarity horizon, grid resolution, batch size and NumPy or Numba backend are all configurable ([performance](performance.md)).
-
-![Three KESurv patient-specific survival curves compared with a population Kaplan–Meier curve on synthetic data.](_static/synthetic-survival-curves.png)
-
-The figure comes from the [synthetic notebook](synthetic-demo.ipynb).
+<figure class="ks-figure">
+  <img src="_static/synthetic-survival-curves.png" alt="Three KESurv patient-specific survival curves compared with a population Kaplan–Meier curve on synthetic data.">
+  <figcaption>Three patient-specific curves against the population Kaplan–Meier curve, from the <a href="synthetic-demo.html">synthetic notebook</a>.</figcaption>
+</figure>
 
 ## Citation
 
-KESurv implements the method in *KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction*, Proceedings of Machine Learning Research (ACML 2026).
+<div class="ks-cite">KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction. <i>Proceedings of Machine Learning Research</i>, ACML 2026.</div>
 
 ```{toctree}
 :hidden:
+:caption: Guide
 
 getting-started
 concepts
@@ -67,6 +82,12 @@ predictions
 custom-estimators
 synthetic-demo
 performance
+```
+
+```{toctree}
+:hidden:
+:caption: Reference
+
 api
 faq
 contributing
