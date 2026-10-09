@@ -3,6 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/kesurv.svg)](https://pypi.org/project/kesurv/)
 [![Tests](https://github.com/yuvrajiro/kesurv/actions/workflows/ci.yml/badge.svg)](https://github.com/yuvrajiro/kesurv/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/docs-kesurv.statml.in-111111)](https://kesurv.statml.in)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.06434-b31b1b.svg)](https://arxiv.org/abs/2610.06434)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yuvrajiro/kesurv/blob/main/LICENSE)
 
 KESurv estimates patient-specific survival curves from right-censored data. A survival forest supplies adaptive neighbor weights; user-selected survival models vote on which neighbors have similar predicted survival trajectories; a weighted Kaplan–Meier estimator produces the final curve.
@@ -64,7 +65,19 @@ python -m sphinx -b html -W --keep-going docs docs/_build/html
 
 ## Citation
 
-If you use KESurv, please cite *KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction*, Proceedings of Machine Learning Research (ACML 2026).
+If you use KESurv, please cite the paper ([arXiv:2610.06434](https://arxiv.org/abs/2610.06434)):
+
+```bibtex
+@misc{goswami2026kesurvkernelensemblemethod,
+      title={KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction},
+      author={Rahul Goswami},
+      year={2026},
+      eprint={2610.06434},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML},
+      url={https://arxiv.org/abs/2610.06434},
+}
+```
 
 ## License
 

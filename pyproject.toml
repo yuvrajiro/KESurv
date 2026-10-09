@@ -54,6 +54,7 @@ Homepage = "https://kesurv.statml.in"
 Documentation = "https://kesurv.statml.in"
 Source = "https://github.com/yuvrajiro/kesurv"
 Issues = "https://github.com/yuvrajiro/kesurv/issues"
+Paper = "https://arxiv.org/abs/2610.06434"
 
 [tool.setuptools.packages.find]
 where = ["src"]

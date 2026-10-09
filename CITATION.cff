@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use KESurv, please cite the paper below."
+title: "KESurv"
+type: software
+authors:
+  - family-names: Goswami
+    given-names: Rahul
+license: MIT
+repository-code: "https://github.com/yuvrajiro/KESurv"
+url: "https://kesurv.statml.in"
+preferred-citation:
+  type: article
+  title: "KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction"
+  authors:
+    - family-names: Goswami
+      given-names: Rahul
+  year: 2026
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.06434"
+  url: "https://arxiv.org/abs/2610.06434"

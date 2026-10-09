@@ -79,3 +79,4 @@ code.ks-install { padding: .55rem .9rem !important; border: 1px dashed var(--col
 .ks-figure figcaption { margin-top: .75rem; font-size: .85rem; color: var(--color-foreground-secondary); text-align: center; }
 
 .ks-cite { padding: 1rem 1.2rem; border-left: 2px solid var(--color-foreground-primary); background: var(--color-background-secondary); font-family: var(--ks-serif); font-size: 1.2rem; line-height: 1.5; border-radius: 0 var(--ks-radius) var(--ks-radius) 0; }
+.ks-eyebrow a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

@@ -1,7 +1,7 @@
 # KESurv
 
 <div class="ks-hero">
-  <div class="ks-eyebrow"><span>v0.1.0</span> Kernel ensemble survival estimation · ACML 2026</div>
+  <div class="ks-eyebrow"><span>v0.1.0</span> Kernel ensemble survival estimation · <a href="https://arxiv.org/abs/2610.06434">arXiv:2610.06434</a></div>
   <p class="ks-display">Survival curves,<br><em>grounded in local evidence.</em></p>
   <p class="ks-lead">A survival forest proposes neighbors, your own models vote on which of them look alike, and a weighted Kaplan–Meier estimator turns the chosen neighbors into a patient-specific curve.</p>
   <div class="ks-actions">
@@ -70,7 +70,19 @@ model.predict_neighbor_info(X_test[:1])                 # which neighbors, and w
 
 ## Citation
 
-<div class="ks-cite">KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction. <i>Proceedings of Machine Learning Research</i>, ACML 2026.</div>
+<div class="ks-cite">Rahul Goswami. KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction. <i>arXiv preprint</i> <a href="https://arxiv.org/abs/2610.06434">arXiv:2610.06434</a>, 2026.</div>
+
+```bibtex
+@misc{goswami2026kesurvkernelensemblemethod,
+      title={KESurv: A Kernel Ensemble Method for Patient-Specific Survival Prediction},
+      author={Rahul Goswami},
+      year={2026},
+      eprint={2610.06434},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML},
+      url={https://arxiv.org/abs/2610.06434},
+}
+```
 
 ```{toctree}
 :hidden:
