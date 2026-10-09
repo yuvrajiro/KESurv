@@ -1,0 +1,15 @@
+/* Minimal adjustments on top of Furo. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+body { font-feature-settings: "cv11", "ss01"; }
+article h1 { font-weight: 700; letter-spacing: -0.02em; }
+article h2 { font-weight: 600; letter-spacing: -0.01em; margin-top: 2.2rem; }
+
+.ks-lead { font-size: 1.15rem; line-height: 1.6; color: var(--color-foreground-secondary); max-width: 40rem; }
+.ks-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 1.25rem 0 2rem; font-weight: 500; }
+.ks-links a { text-decoration: none; }
+.ks-links a:hover { text-decoration: underline; }
+
+.ks-flow { font-family: var(--font-stack--monospace); font-size: 0.85rem; color: var(--color-foreground-secondary); padding: 0.9rem 1rem; border-left: 2px solid var(--color-brand-primary); background: var(--color-background-secondary); margin: 1rem 0 1.5rem; }
+
+article img { border-radius: 6px; }

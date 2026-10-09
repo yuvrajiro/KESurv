@@ -1,0 +1,28 @@
+# Papers and other local reference material (never commit)
+*.pdf
+
+# Python build and test artifacts
+__pycache__/
+*.py[cod]
+*.pyd
+*.dll
+*.so
+benchmarks/_cython_trial.c
+.pytest_cache/
+pytest-cache-files-*/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+docs/_build/
+docs/jupyter_execute/
+.venv/
+venv/
+.tmp/
+.ipynb_checkpoints/
+
+# Local tooling
+.claude/
+.vscode/
+.idea/
+.env
